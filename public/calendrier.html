@@ -136,9 +136,102 @@
       font-weight: 700
     }
 
+    .account-wrap {
+      position: relative;
+    }
+
+    .account-trigger {
+      appearance: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font: inherit;
+      padding: 5px 8px 5px 6px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .account-trigger:hover,
+    .account-trigger[aria-expanded="true"] {
+      border-color: var(--led);
+    }
+
+    .account-avatar {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      background: var(--led);
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .account-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .account-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .account-status {
+      color: var(--c-tech);
+      font-size: 8px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .account-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      z-index: 60;
+      width: 220px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .45);
+      padding: 12px;
+    }
+
+    .account-menu.open {
+      display: block;
+      animation: fade .15s ease-out;
+    }
+
+    .account-menu .menu-label {
+      color: var(--ink-faint);
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .account-menu .menu-email {
+      color: var(--ink);
+      font-size: 11px;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+
+    .account-menu button {
+      width: 100%;
+      text-align: left;
+      margin-top: 6px;
+    }
+
     nav.tabs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       border: 1px solid var(--line);
       border-top: none;
       position: sticky;
@@ -251,6 +344,144 @@
       text-transform: uppercase
     }
 
+    .profile-shell {
+      display: grid;
+      grid-template-columns: minmax(220px, .8fr) minmax(0, 1.7fr);
+      gap: 14px;
+    }
+
+    .profile-identity,
+    .profile-form,
+    .profile-stat {
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .profile-identity {
+      padding: 18px;
+    }
+
+    .profile-avatar-large {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      background: var(--led);
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .profile-identity h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .profile-identity .email {
+      color: var(--ink-dim);
+      font-size: 10px;
+      letter-spacing: .04em;
+      word-break: break-word;
+    }
+
+    .connected-line {
+      color: var(--c-tech);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 18px;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .profile-stat {
+      padding: 12px;
+    }
+
+    .profile-stat .value {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--led);
+    }
+
+    .profile-stat .label {
+      display: block;
+      color: var(--ink-faint);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .profile-form {
+      padding: 16px;
+    }
+
+    .profile-form h3 {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .profile-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .profile-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .profile-field label {
+      color: var(--ink-dim);
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .profile-field input,
+    .profile-field select {
+      appearance: none;
+      width: 100%;
+      background: #060606;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font: inherit;
+      font-size: 11px;
+      padding: 8px 9px;
+    }
+
+    .profile-field input:focus,
+    .profile-field select:focus {
+      outline: none;
+      border-color: var(--led);
+    }
+
+    .profile-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .profile-save-note {
+      color: var(--c-tech);
+      font-size: 10px;
+      letter-spacing: .05em;
+    }
+
     .legend {
       display: flex;
       flex-wrap: wrap;
@@ -278,8 +509,9 @@
 
     .week-grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: var(--gap)
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: var(--gap);
+      min-width: 0;
     }
 
     .day-card {
@@ -290,7 +522,9 @@
       position: relative;
       transition: border-color .15s, background .15s;
       display: flex;
-      flex-direction: column
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .day-card:hover {
@@ -304,7 +538,8 @@
     }
 
     .day-card .dc-body {
-      padding: 12px 12px 14px
+      padding: 12px 12px 14px;
+      min-width: 0;
     }
 
     .day-card .letter {
@@ -331,7 +566,10 @@
       align-items: center;
       gap: 5px;
       border: 1px solid;
-      align-self: flex-start
+      align-self: flex-start;
+      max-width: 100%;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .day-card .cat-tag .tag-x {
@@ -377,7 +615,8 @@
     .day-card .title {
       font-size: 13px;
       font-weight: 700;
-      margin-top: 10px
+      margin-top: 10px;
+      overflow-wrap: anywhere;
     }
 
     .day-card .dur {
@@ -393,7 +632,8 @@
       font-size: 11.5px;
       color: var(--ink-dim);
       margin-top: 6px;
-      line-height: 1.45
+      line-height: 1.45;
+      overflow-wrap: anywhere;
     }
 
     .day-card .expand {
@@ -1994,7 +2234,7 @@
       }
 
       .week-grid {
-        grid-template-columns: repeat(4, 1fr)
+        grid-template-columns: repeat(4, minmax(0, 1fr))
       }
     }
 
@@ -2016,7 +2256,7 @@
       }
 
       .week-grid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, minmax(0, 1fr))
       }
 
       .months {
@@ -2035,11 +2275,20 @@
       .load-col .lab {
         font-size: 8px
       }
+
+      .profile-shell,
+      .profile-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .account-copy {
+        display: none;
+      }
     }
 
     @media(max-width:380px) {
       .week-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: minmax(0, 1fr)
       }
     }
   </style>
@@ -2052,7 +2301,24 @@
       <div class="brand"><span class="dot"></span>
         <h1>SCORE<span>BOARD</span></h1>
       </div>
-      <div class="clock" id="clock">--:--:-- <b id="phaseLbl">--</b></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="clock" id="clock">--:--:-- <b id="phaseLbl">--</b></div>
+        <div class="account-wrap">
+          <button class="account-trigger" id="accountTrigger" type="button" aria-expanded="false" aria-controls="accountMenu">
+            <span class="account-avatar" id="accountAvatar">JD</span>
+            <span class="account-copy">
+              <span class="account-name" id="accountName">Jordan Dupont</span>
+              <span class="account-status">● CONNECTÉ</span>
+            </span>
+          </button>
+          <div class="account-menu" id="accountMenu" aria-hidden="true">
+            <div class="menu-label">Session active</div>
+            <div class="menu-email" id="accountEmail">jordan.dupont@scoreboard.local</div>
+            <button class="ghost" type="button" id="accountProfile">Voir mon profil</button>
+            <button class="ghost" type="button" id="accountSignOut">Se déconnecter</button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -2063,6 +2329,7 @@
     <button role="tab" data-view="exercices" aria-selected="false"><span class="idx">04</span>EXERCICES</button>
     <button role="tab" data-view="progression" aria-selected="false"><span class="idx">05</span>PROGRESSION</button>
     <button role="tab" data-view="reglages" aria-selected="false"><span class="idx">06</span>RÉGLAGES</button>
+    <button role="tab" data-view="profil" aria-selected="false"><span class="idx">07</span>PROFIL</button>
   </nav>
 
   <div class="wrap">
@@ -2085,6 +2352,38 @@
       <div class="bl-metric-lab" style="margin-top:18px;">GLISSE UNE CATÉGORIE SUR UN JOUR POUR L'AJOUTER</div>
       <div class="cfg" id="catPalette" style="flex-wrap:wrap;"></div>
       <div class="week-grid" id="weekGrid"></div>
+    </section>
+
+    <section class="view" id="view-profil" role="tabpanel">
+      <div class="view-head">
+        <h2>MON PROFIL</h2><span class="sub">Compte connecté · données locales</span>
+      </div>
+      <div class="profile-shell">
+        <div class="profile-identity">
+          <div class="profile-avatar-large" id="profileAvatar">JD</div>
+          <h3 id="profileName">Jordan Dupont</h3>
+          <div class="email" id="profileEmail">jordan.dupont@scoreboard.local</div>
+          <div class="connected-line">● Compte connecté</div>
+          <div class="profile-stats">
+            <div class="profile-stat"><span class="value" id="profileSessions">0</span><span class="label">Séances</span></div>
+            <div class="profile-stat"><span class="value" id="profileMatches">0</span><span class="label">Matchs</span></div>
+            <div class="profile-stat"><span class="value" id="profileJump">--</span><span class="label">Détente max</span></div>
+          </div>
+        </div>
+        <form class="profile-form" id="profileForm">
+          <h3>Informations du compte</h3>
+          <div class="profile-fields">
+            <div class="profile-field"><label for="profileFirstName">Prénom</label><input id="profileFirstName" type="text" /></div>
+            <div class="profile-field"><label for="profileLastName">Nom</label><input id="profileLastName" type="text" /></div>
+            <div class="profile-field"><label for="profileEmailInput">E-mail</label><input id="profileEmailInput" type="email" /></div>
+            <div class="profile-field"><label for="profilePosition">Poste</label><select id="profilePosition"><option>Meneur</option><option>Arrière</option><option>Ailier</option><option>Intérieur</option><option>Pivot</option></select></div>
+          </div>
+          <div class="profile-actions">
+            <button class="ghost" type="submit">Enregistrer les modifications</button>
+            <span class="profile-save-note" id="profileSaveNote" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
     </section>
 
     <section class="view" id="view-cycle" role="tabpanel">
@@ -2492,6 +2791,13 @@
       sealAutoEnabled: true, sealedCycles: [],
       season: { name: '', start: null, end: null },
       programs: {},
+      account: {
+        connected: true,
+        firstName: 'Jordan',
+        lastName: 'Dupont',
+        email: 'jordan.dupont@scoreboard.local',
+        position: 'Meneur'
+      },
     }, loadState());
     if (!STATE.days) STATE.days = {};
     if (!STATE.deletedCategories) STATE.deletedCategories = [];
@@ -2501,6 +2807,8 @@
     if (!STATE.volumeFactors) STATE.volumeFactors = deepClone(DEFAULT_VOLUME_FACTORS);
     if (!STATE.nutrition) STATE.nutrition = deepClone(DEFAULT_NUTRITION);
     if (!STATE.season) STATE.season = { name: '', start: null, end: null };
+    if (!STATE.account) STATE.account = { connected: true, firstName: 'Jordan', lastName: 'Dupont', email: 'jordan.dupont@scoreboard.local', position: 'Meneur' };
+    if (typeof STATE.account.connected !== 'boolean') STATE.account.connected = true;
 
     /* ============================================================
        SAUVEGARDE ROBUSTE — détecte le quota plein, avertit, garde les données
@@ -4662,7 +4970,93 @@
         document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
         $('#view-' + b.dataset.view).classList.add('active');
         if (b.dataset.view === 'cycle') renderCycleComparison();
+        if (b.dataset.view === 'profil') renderProfile();
       }));
+    }
+
+    function accountInitials() {
+      const first = (STATE.account.firstName || 'J')[0];
+      const last = (STATE.account.lastName || 'D')[0];
+      return (first + last).toUpperCase();
+    }
+
+    function renderProfile() {
+      const account = STATE.account;
+      const fullName = ((account.firstName || '') + ' ' + (account.lastName || '')).trim() || 'Joueur Scoreboard';
+      $('#accountAvatar').textContent = accountInitials();
+      $('#accountName').textContent = fullName;
+      $('#accountEmail').textContent = account.email || 'Aucun e-mail renseigné';
+      $('#profileAvatar').textContent = accountInitials();
+      $('#profileName').textContent = fullName;
+      $('#profileEmail').textContent = account.email || 'Aucun e-mail renseigné';
+      $('#profileFirstName').value = account.firstName || '';
+      $('#profileLastName').value = account.lastName || '';
+      $('#profileEmailInput').value = account.email || '';
+      $('#profilePosition').value = account.position || 'Meneur';
+
+      let sessions = 0;
+      let matches = 0;
+      Object.values(STATE.days).forEach(day => {
+        if (day.done) sessions++;
+        if (day.override === 'MATCH' || day.cat === 'MATCH') matches++;
+      });
+      const jumps = (STATE.jumpTests || []).map(test => Number(test.cm)).filter(Number.isFinite);
+      $('#profileSessions').textContent = String(sessions);
+      $('#profileMatches').textContent = String(matches);
+      $('#profileJump').textContent = jumps.length ? Math.max(...jumps) + ' cm' : '--';
+    }
+
+    function initAccount() {
+      const trigger = $('#accountTrigger');
+      const menu = $('#accountMenu');
+      const closeMenu = () => {
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        menu.classList.remove('open');
+      };
+      trigger.addEventListener('click', () => {
+        const open = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!open));
+        menu.setAttribute('aria-hidden', String(open));
+        menu.classList.toggle('open', !open);
+      });
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.account-wrap')) closeMenu();
+      });
+      $('#accountProfile').addEventListener('click', () => {
+        document.querySelector('nav.tabs button[data-view="profil"]').click();
+        closeMenu();
+      });
+      $('#accountSignOut').addEventListener('click', () => {
+        STATE.account.connected = !STATE.account.connected;
+        saveState();
+        closeMenu();
+        renderAccountStatus();
+      });
+      $('#profileForm').addEventListener('submit', event => {
+        event.preventDefault();
+        STATE.account.firstName = $('#profileFirstName').value.trim() || 'Joueur';
+        STATE.account.lastName = $('#profileLastName').value.trim();
+        STATE.account.email = $('#profileEmailInput').value.trim();
+        STATE.account.position = $('#profilePosition').value;
+        STATE.account.connected = true;
+        saveState();
+        renderProfile();
+        renderAccountStatus();
+        $('#profileSaveNote').textContent = 'PROFIL MIS À JOUR';
+        setTimeout(() => { $('#profileSaveNote').textContent = ''; }, 2200);
+      });
+      renderProfile();
+      renderAccountStatus();
+    }
+
+    function renderAccountStatus() {
+      const connected = STATE.account.connected;
+      const status = document.querySelector('.account-status');
+      const signOut = $('#accountSignOut');
+      status.textContent = connected ? '● CONNECTÉ' : '○ HORS LIGNE';
+      status.style.color = connected ? 'var(--c-tech)' : 'var(--ink-faint)';
+      signOut.textContent = connected ? 'Se déconnecter' : 'Se reconnecter';
     }
 
     function tick() {
@@ -5661,6 +6055,7 @@
       renderLibrary();
       renderSettings();
       initTabs();
+      initAccount();
       tick(); setInterval(tick, 1000);
 
       if (STATE.cycleStart) $('#cycleStart').value = STATE.cycleStart;
