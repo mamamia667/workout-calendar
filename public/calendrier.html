@@ -229,6 +229,217 @@
       margin-top: 6px;
     }
 
+    body.home-mode > header.board,
+    body.home-mode > nav.tabs,
+    body.home-mode > .wrap {
+      display: none;
+    }
+
+    .home-screen {
+      display: none;
+      min-height: 100vh;
+      padding: 28px 16px 56px;
+    }
+
+    body.home-mode .home-screen {
+      display: block;
+      animation: fade .35s ease-out;
+    }
+
+    .home-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .home-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .home-status {
+      color: var(--c-tech);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .home-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+      gap: 26px;
+      align-items: end;
+      padding: clamp(72px, 14vh, 150px) 0 54px;
+    }
+
+    .home-kicker {
+      color: var(--led);
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .home-title {
+      max-width: 720px;
+      font-size: clamp(34px, 6vw, 76px);
+      line-height: .98;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .home-title span {
+      color: var(--led);
+    }
+
+    .home-intro {
+      max-width: 470px;
+      color: var(--ink-dim);
+      font-size: 12px;
+      line-height: 1.7;
+      margin-top: 22px;
+    }
+
+    .home-profile {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 18px;
+    }
+
+    .home-profile-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .home-avatar {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      background: var(--led);
+      color: #000;
+      font-weight: 700;
+    }
+
+    .home-profile-name {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .home-profile-mail {
+      color: var(--ink-dim);
+      font-size: 10px;
+      margin-top: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    .home-next {
+      padding-top: 16px;
+    }
+
+    .home-label {
+      color: var(--ink-faint);
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .home-next-value {
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .home-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .home-actions .primary-action,
+    .home-actions .secondary-action {
+      appearance: none;
+      font: inherit;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      padding: 12px 15px;
+      cursor: pointer;
+    }
+
+    .primary-action {
+      border: 1px solid var(--led);
+      background: var(--led);
+      color: #000;
+    }
+
+    .secondary-action {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink-dim);
+    }
+
+    .primary-action:hover,
+    .secondary-action:hover {
+      border-color: var(--ink);
+    }
+
+    .home-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .home-metric {
+      padding: 16px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .home-metric:last-child {
+      border-right: none;
+    }
+
+    .home-metric-value {
+      display: block;
+      color: var(--led);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .home-metric-label {
+      display: block;
+      color: var(--ink-faint);
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    @media(max-width:620px) {
+      .home-screen {
+        padding-top: 20px;
+      }
+
+      .home-hero {
+        grid-template-columns: 1fr;
+        padding: 76px 0 40px;
+      }
+
+      .home-title {
+        font-size: 42px;
+      }
+    }
+
     nav.tabs {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -2294,7 +2505,47 @@
   </style>
 </head>
 
-<body>
+<body class="home-mode">
+
+  <section class="home-screen" id="homeScreen" aria-label="Accueil">
+    <div class="home-inner">
+      <div class="home-top">
+        <div class="brand"><span class="dot"></span>
+          <h1>SCORE<span>BOARD</span></h1>
+        </div>
+        <div class="home-status">● SESSION ACTIVE</div>
+      </div>
+      <div class="home-hero">
+        <div>
+          <div class="home-kicker">Tableau de bord personnel</div>
+          <h2 class="home-title">Bonjour, <span id="homeName">Jordan</span>.</h2>
+          <p class="home-intro">Ton programme, tes séances et tes indicateurs de performance réunis au même endroit.</p>
+          <div class="home-actions" style="margin-top:28px;">
+            <button class="primary-action" id="openDashboard" type="button">Ouvrir mon tableau</button>
+            <button class="secondary-action" id="openProfileFromHome" type="button">Voir mon profil</button>
+          </div>
+        </div>
+        <div class="home-profile">
+          <div class="home-profile-head">
+            <div class="home-avatar" id="homeAvatar">JD</div>
+            <div>
+              <div class="home-profile-name" id="homeProfileName">Jordan Dupont</div>
+              <div class="home-profile-mail" id="homeProfileEmail">jordan.dupont@scoreboard.local</div>
+            </div>
+          </div>
+          <div class="home-next">
+            <div class="home-label">Prochaine échéance</div>
+            <div class="home-next-value" id="homeNextMatch">Chargement...</div>
+          </div>
+        </div>
+      </div>
+      <div class="home-strip">
+        <div class="home-metric"><span class="home-metric-value" id="homeSessions">0</span><span class="home-metric-label">Séances enregistrées</span></div>
+        <div class="home-metric"><span class="home-metric-value" id="homeMatches">0</span><span class="home-metric-label">Matchs planifiés</span></div>
+        <div class="home-metric"><span class="home-metric-value" id="homeJump">--</span><span class="home-metric-label">Détente maximale</span></div>
+      </div>
+    </div>
+  </section>
 
   <header class="board">
     <div class="board-inner">
@@ -5059,6 +5310,40 @@
       signOut.textContent = connected ? 'Se déconnecter' : 'Se reconnecter';
     }
 
+    function renderHome() {
+      const account = STATE.account;
+      const fullName = ((account.firstName || '') + ' ' + (account.lastName || '')).trim() || 'Joueur Scoreboard';
+      const nextMatch = getNextMatchDate();
+      let sessions = 0;
+      let matches = 0;
+      Object.values(STATE.days).forEach(day => {
+        if (day.done) sessions++;
+        if (day.override === 'MATCH' || day.cat === 'MATCH') matches++;
+      });
+      const jumps = (STATE.jumpTests || []).map(test => Number(test.cm)).filter(Number.isFinite);
+      $('#homeName').textContent = account.firstName || 'Joueur';
+      $('#homeProfileName').textContent = fullName;
+      $('#homeProfileEmail').textContent = account.email || 'Aucun e-mail renseigné';
+      $('#homeAvatar').textContent = accountInitials();
+      $('#homeSessions').textContent = String(sessions);
+      $('#homeMatches').textContent = String(matches);
+      $('#homeJump').textContent = jumps.length ? Math.max(...jumps) + ' cm' : '--';
+      $('#homeNextMatch').textContent = nextMatch ? fmtDate(nextMatch) + ' ' + nextMatch.getFullYear() : 'Aucun match programmé';
+    }
+
+    function initHome() {
+      const showDashboard = () => {
+        document.body.classList.remove('home-mode');
+        document.querySelector('nav.tabs button[data-view="semaine"]').click();
+      };
+      $('#openDashboard').addEventListener('click', showDashboard);
+      $('#openProfileFromHome').addEventListener('click', () => {
+        document.body.classList.remove('home-mode');
+        document.querySelector('nav.tabs button[data-view="profil"]').click();
+      });
+      renderHome();
+    }
+
     function tick() {
       const now = new Date();
       const hh = String(now.getHours()).padStart(2, '0');
@@ -6056,6 +6341,7 @@
       renderSettings();
       initTabs();
       initAccount();
+      initHome();
       tick(); setInterval(tick, 1000);
 
       if (STATE.cycleStart) $('#cycleStart').value = STATE.cycleStart;
